@@ -16,6 +16,7 @@ const Wrapper = styled.nav`
   left: 0;
   height: 5.6rem;
   background-color: #317e3d;
+  z-index: 1;
 `;
 
 export default Navbar;
