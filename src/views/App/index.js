@@ -4,11 +4,11 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import {
   BrowserRouter as Router,
+  Route
 } from 'react-router-dom';
 
-import Navbar from '../../components/Navbar';
-import Contents from '../../components/Contents';
-import Post from '../../components/Post';
+import Main from '../Main';
+import Home from '../Home';
 
 const client = new ApolloClient({
   uri: 'https://sauna-graphql.herokuapp.com/'
@@ -19,18 +19,12 @@ class App extends React.Component {
     return (
       <Router>
         <ApolloProvider client={client}>
-          <Wrapper>
-            <Navbar />
-            <Contents>
-              Hello
-            </Contents>
-          </Wrapper>
+          <Route exact path="/" component={Main}/>
+          <Route path="/home" component={Home}/>
         </ApolloProvider>
       </Router>
     );
   }
 }
-
-const Wrapper = styled.div``;
 
 export default App;
