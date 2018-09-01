@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
+
 import Navbar from '../../components/Navbar';
 import Contents from '../../components/Contents';
 
@@ -12,14 +16,16 @@ const client = new ApolloClient({
 class App extends React.Component {
   render() {
     return (
-      <ApolloProvider client={client}>
-        <Wrapper>
-          <Navbar />
-          <Contents>
-            Hello
-          </Contents>
-        </Wrapper>
-      </ApolloProvider>
+      <Router>
+        <ApolloProvider client={client}>
+          <Wrapper>
+            <Navbar />
+            <Contents>
+              Hello
+            </Contents>
+          </Wrapper>
+        </ApolloProvider>
+      </Router>
     );
   }
 }
