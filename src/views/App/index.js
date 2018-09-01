@@ -8,6 +8,7 @@ import {
 
 import Navbar from '../../components/Navbar';
 import Contents from '../../components/Contents';
+import Post from '../../components/Post';
 
 const client = new ApolloClient({
   uri: 'https://sauna-graphql.herokuapp.com/'
