@@ -24,12 +24,10 @@ const ADD_USER = gql`
 
 class Main extends React.Component {
   responseFacebook = async (response, addUser) => {
-    console.log('response', response);
-
     const { id: facebookId, name: username, picture } = response;
 
     try {
-      const result = await addUser({
+      await addUser({
         variables: {
           facebookId,
           username,
@@ -40,7 +38,10 @@ class Main extends React.Component {
       alert(e);
     }
 
-    this.props.history.push('/home');
+    this.props.history.push({
+      pathname: '/home',
+      state: { facebookId }
+    });
   };
 
   render() {

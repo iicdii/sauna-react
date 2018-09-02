@@ -4,7 +4,9 @@ import styled from 'styled-components';
 class Navbar extends React.Component {
   render() {
     return (
-      <Wrapper>Navbar</Wrapper>
+      <Wrapper>
+
+      </Wrapper>
     );
   }
 }
