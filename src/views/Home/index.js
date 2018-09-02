@@ -9,33 +9,33 @@ import Post from '../../components/Post/index';
 
 class Home extends React.Component {
   offset = 0;
-  limit = 5;
+  limit = 50;
   delay = false;
 
   componentDidMount() {
-    window.onscroll = () => {
-      const { data } = this.props;
-
-      if (data.loading || this.delay) return;
-
-      // Checks that the page has scrolled to the bottom
-      if (
-        (window.innerHeight + window.scrollY) >= document.body.offsetHeight
-      ) {
-        this.offset += 5;
-        this.props.data.refetch({
-          offset: this.offset,
-          limit: this.limit,
-        })
-          .then(() => {
-            this.delay = true;
-
-            setTimeout(() => {
-              this.delay = false;
-            }, 2000);
-          });
-      }
-    };
+    // window.onscroll = () => {
+    //   const { data } = this.props;
+    //
+    //   if (data.loading || this.delay) return;
+    //
+    //   // Checks that the page has scrolled to the bottom
+    //   if (
+    //    window.scrollY >= document.body.offsetHeight
+    //   ) {
+    //     this.offset += 5;
+    //     this.props.data.refetch({
+    //       offset: this.offset,
+    //       limit: this.limit,
+    //     })
+    //       .then(() => {
+    //         this.delay = true;
+    //
+    //         setTimeout(() => {
+    //           this.delay = false;
+    //         }, 3000);
+    //       });
+    //   }
+    // };
   }
 
   render() {
@@ -92,7 +92,7 @@ export default graphql(gql`
       return {
         variables: {
           offset: 0,
-          limit: 5,
+          limit: 50,
         },
         fetchPolicy: 'cache-and-network',
       };
